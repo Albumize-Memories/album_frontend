@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import UploadFormComponent from './formComponent';
+import YouTubeEmbedComponent from './youtubeEmbedComponent';
+import SoundCloudEmbed from './soundcloudEmbedComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UploadFormComponent />
+    <YouTubeEmbedComponent/>
+    {/* <SoundCloudEmbed/> */}
   </React.StrictMode>
 );
 
