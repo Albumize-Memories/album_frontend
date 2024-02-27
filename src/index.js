@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <UploadFormComponent />
     <YouTubeEmbedComponent/>
-    {/* <SoundCloudEmbed/> */}
+    <SoundCloudEmbed/> 
   </React.StrictMode>
 );
 

@@ -7,6 +7,28 @@ const UploadMultipleComponent = () => {
     const [additionalFiles, setAdditionalFiles] = useState([]);
     const maxAllowedFiles = 5;
 
+    useEffect(() => {
+        // Check if the unique identifier exists in cookies
+        let sessionId = localStorage.getItem('sessionId');
+        if (!sessionId) {
+          // If it doesn't exist, generate a new one
+          sessionId = generateUniqueId();
+          localStorage.setItem('sessionId', sessionId);
+        }
+    
+        // Send the unique identifier to the backend
+        axios.defaults.headers.common['Session-Token'] = sessionId;
+      }, []);
+    
+      const generateUniqueId = () => {
+        // Generate a UUID (Universally Unique Identifier)
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random() * 16 | 0,
+              v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      };
+      
     const handleFileChange = (e) => {
         const files = Array.from(e.target.files);
         if (files.length <= maxAllowedFiles) {
