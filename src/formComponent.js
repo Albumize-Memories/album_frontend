@@ -9,7 +9,6 @@ const FormComponent = ({ onSubmit }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(theme);
         await onSubmit({ theme, tagline, numPhotos});
     };
 
@@ -61,6 +60,29 @@ const UploadFormComponent = () => {
           // If it doesn't exist, generate a new one
           sessionId = generateUniqueId();
           localStorage.setItem('sessionId', sessionId);
+        } else {
+            // console.log('i am here');
+            // const storedFormData = localStorage.getItem('formData');
+            // console.log(storedFormData);
+            // if(storedFormData){
+            //     setFormData(JSON.parse(storedFormData));
+            //     setShowFileSelection(true);
+            // }
+            axios.get('http://34.230.95.146:5000/retrieveGuestData', {
+                headers: {
+                    'Session-Token': sessionId,
+                },
+            })
+            .then(response => {
+                if (response.data) {
+                    console.log(response.data);
+                    // setFormData(response.data);
+                    // setShowFileSelection(true);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching form data:', error);
+            });
         }
         // Send the unique identifier to the backend
         // axios.defaults.headers.common['Session-Token'] = sessionId;
@@ -76,13 +98,17 @@ const UploadFormComponent = () => {
         });
       };
 
+    const handleEdit = () => {
+        setShowFileSelection(false);
+    };
+
     const handleFormSubmit = async (data) => {
         setFormData(data);
         setShowFileSelection(true);
         const body=JSON.stringify(data);
         try {
             // Make the API call
-            const response = await fetch('http://127.0.0.1:5000/createGuestUser', {
+            const response = await fetch('http://34.230.95.146:5000/createGuestUser', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -111,6 +137,9 @@ const UploadFormComponent = () => {
                 <div>
                     <h2>Selected Type: {formData.theme}</h2>
                     <h2>Tagline: {formData.tagline}</h2>
+                    <button onClick={handleEdit}>
+                        Edit taline or selected type
+                    </button>
                      <UploadMultipleComponent/>
                 </div>
             )}

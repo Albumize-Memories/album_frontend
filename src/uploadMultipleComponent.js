@@ -80,7 +80,7 @@ const UploadMultipleComponent = () => {
             }
         });
         try {
-            await axios.post('http://127.0.0.1:5000/uploadImages', formData, {
+            await axios.post('http://34.230.95.146:5000/uploadImages', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
