@@ -2,6 +2,8 @@ import React, { useState , useEffect} from 'react';
 import UploadMultipleComponent from './uploadMultipleComponent';
 import axios from 'axios';
 
+const config = require('./config.json');
+
 const FormComponent = ({ onSubmit }) => {
     const [theme, setTheme] = useState('');
     const [tagline, setTagline] = useState('');
@@ -61,14 +63,8 @@ const UploadFormComponent = () => {
           sessionId = generateUniqueId();
           localStorage.setItem('sessionId', sessionId);
         } else {
-            // console.log('i am here');
-            // const storedFormData = localStorage.getItem('formData');
-            // console.log(storedFormData);
-            // if(storedFormData){
-            //     setFormData(JSON.parse(storedFormData));
-            //     setShowFileSelection(true);
-            // }
-            axios.get('http://34.230.95.146:5000/retrieveGuestData', {
+            axios.get('http://34.230.95.146:5000/retrieveGuestUserFormData', {
+            // axios.get(`${config.server_address}/retrieveGuestUserFormData`, {
                 headers: {
                     'Session-Token': sessionId,
                 },
@@ -76,8 +72,6 @@ const UploadFormComponent = () => {
             .then(response => {
                 if (response.data) {
                     console.log(response.data);
-                    // setFormData(response.data);
-                    // setShowFileSelection(true);
                 }
             })
             .catch(error => {
@@ -85,7 +79,6 @@ const UploadFormComponent = () => {
             });
         }
         // Send the unique identifier to the backend
-        // axios.defaults.headers.common['Session-Token'] = sessionId;
         setSessionUid(sessionId);
       }, []);
     
@@ -109,6 +102,7 @@ const UploadFormComponent = () => {
         try {
             // Make the API call
             const response = await fetch('http://34.230.95.146:5000/createGuestUser', {
+            // const response = await fetch(`${config.server_address}/createGuestUser`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

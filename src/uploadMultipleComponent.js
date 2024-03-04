@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const config = require('./config.json');
+
 const UploadMultipleComponent = () => {
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [displayedImageIndex, setDisplayedImageIndex] = useState(0);
@@ -69,7 +71,7 @@ const UploadMultipleComponent = () => {
         }
      };
 
-    const handleUpload = async () => {
+     const handleUpload = async () => {
         const formData = new FormData();
         selectedFiles.forEach((file, index) => {
             formData.append(`file${index}`, file);
@@ -81,6 +83,7 @@ const UploadMultipleComponent = () => {
         });
         try {
             await axios.post('http://34.230.95.146:5000/uploadImages', formData, {
+            // await axios.post(`${config.server_address}/uploadImages`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -91,6 +94,7 @@ const UploadMultipleComponent = () => {
             console.error('Error uploading files: ', error);
         }
     };
+    
 
     return (
       <div>
