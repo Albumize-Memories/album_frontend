@@ -54,6 +54,7 @@ const UploadFormComponent = () => {
     const [showFileSelection, setShowFileSelection] = useState(false);
     const [formData, setFormData] = useState(null);
     const [sessionUid, setSessionUid] = useState('');
+    const sessionId = localStorage.getItem('sessionId');
 
     useEffect(() => {
         // Check if the unique identifier exists in cookies
