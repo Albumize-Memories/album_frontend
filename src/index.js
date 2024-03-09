@@ -6,13 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import CreateMemoryFrame from './memoryFrameComponent';
 import SessionIdComponent from './sessionIdComponent';
 import MediaLinkFetcher from './mediaFetcher';
+import MemoryFrameComponentTwo from './memoryFrameComponentTwo'
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter> {/* Wrap your components with BrowserRouter */}
       <SessionIdComponent />
-      <CreateMemoryFrame />
-      <MediaLinkFetcher />
+      <MemoryFrameComponentTwo />
+      {/* <CreateMemoryFrame /> */}
+      {/* <MediaLinkFetcher /> */}
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

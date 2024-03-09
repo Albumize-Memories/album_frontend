@@ -20,7 +20,7 @@ const MediaLinkFetcher = () => {
     const triggerLambda = async (s3Bucket, objectKey) => {
         try {
             // Make POST request with extracted parameters
-            const response = await axios.post('http://127.0.0.1:5000/fetchMedia', { s3_bucket_name: s3Bucket, object_key: objectKey });
+            const response = await axios.post('http://44.229.103.47:5000/fetchMedia', { s3_bucket_name: s3Bucket, object_key: objectKey });
             setLink(response.data.link);
             setError('');
         } catch (error) {
