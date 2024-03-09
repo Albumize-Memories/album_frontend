@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# How was FrontEnd Server Setup 
+
+- Buy A DOmain on Hostinger.com
+- Go to Route53 and follow these instructions
+https://medium.com/@y.mehnati_49486/empowering-your-aws-amplify-application-with-a-custom-domain-leveraging-route-53-and-hostinger-99a0a6f75858
+- Then Go to AMplify and Host React website and see if it accessible through temporary link provided by those peeps
+- Then as per follow up instruction on this Website link your Domain and wait for it to get propogated properly for sometime.
+https://medium.com/@y.mehnati_49486/empowering-your-aws-amplify-application-with-a-custom-domain-leveraging-route-53-and-hostinger-99a0a6f75858
