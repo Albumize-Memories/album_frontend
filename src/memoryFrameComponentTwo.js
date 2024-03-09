@@ -77,7 +77,7 @@ const MemoryFrameComponentTwo = () => {
 
     return (
 
-       <div style={{ width: '100%', height: '100%', border: '10px solid black', boxSizing: 'border-box', overflow: 'hidden', marginBottom: '100px' }}>
+       <div style={{ width: '100%', height: '100%', border: '10px solid black', boxSizing: 'border-box', overflow: 'hidden', marginBottom: '100px' , backgroundColor: 'FFD8B1' }}>
     <div style={{ width: '100%', paddingTop: `${aspectRatio * 100}%`, position: 'relative' }}>
         {/* Custom static image for brown rectangle */}
         <div style={{ position: 'absolute', width: `${1080 * scale}px`, height: `${1440 * scale}px`, left: `${210 * scale}px`, top: `${105 * scale}px`, border: `${2 * scale}px solid black` }}>
@@ -95,7 +95,7 @@ const MemoryFrameComponentTwo = () => {
 
         {/* Text box */}
         <div style={{ position: 'absolute', width: `${900 * scale}px`, height: `${225 * scale}px`, left: `${(140 + 225 + 20) * scale}px`, top: `${1600 * scale}px`, backgroundColor: 'white', border: `${2 * scale}px solid #123456`, boxSizing: 'border-box' }}>
-            <input type="text" onChange={handleTextChange} value={text} style={{ width: '90%', height: '90%', padding: `${5 * scale}px`, boxSizing: 'border-box', fontSize: `${30 * scale}px`, border: 'none' }} placeholder="Enter Your memories here" />
+            <textarea style={{ width: '100%', height: '90%', padding: `${5 * scale}px`, boxSizing: 'border-box', fontSize: `${30 * scale}px`, border: 'none' }} placeholder="Enter Your memories here"> </textarea>
         </div>
 
         {/* Text */}
