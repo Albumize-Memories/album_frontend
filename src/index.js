@@ -1,18 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Import BrowserRouter
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import CreateMemoryFrame from './memoryFrameComponent';
 import SessionIdComponent from './sessionIdComponent';
 import MediaLinkFetcher from './mediaFetcher';
 import MemoryFrameComponentTwo from './memoryFrameComponentTwo'
-
+import  { ShippingPolicy }  from './ShippingPolicy';
+import  { PrivacyPolicy }  from './PrivacyPolicy';
+import  { RefundPolicy }  from './RefundPolicy';
+import { TermsAndConditions } from './TermsAndCOnditions';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter> {/* Wrap your components with BrowserRouter */}
       <SessionIdComponent />
-      <MemoryFrameComponentTwo />
+    
+      <Routes>
+          <Route path="/privacy-policy"element={<PrivacyPolicy/>} />
+          <Route path="/shipping-policy" element={<ShippingPolicy/>} />
+          <Route path="/refund-policy" element={<RefundPolicy/>} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions/>} />
+          <Route path='/' element={<MemoryFrameComponentTwo/>} />
+        </Routes>
       {/* <CreateMemoryFrame /> */}
       {/* <MediaLinkFetcher /> */}
     </BrowserRouter>

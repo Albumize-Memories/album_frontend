@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Footer} from './Footer'
 
 const MemoryFrameComponentTwo = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -107,7 +108,7 @@ const MemoryFrameComponentTwo = () => {
         <input id="imageInput" type="file" onChange={handleImageUpload} style={{ display: 'none' }} accept="image/*" />
         <input id="mediaInput" type="file" onChange={handleMediaUpload} style={{ display: 'none' }} accept="video/*,audio/*"/>
     </div>
-
+    <Footer/>
     {/* Bottom buttons */}
     <div style={{ position: 'fixed', width: '100%', bottom: 0, display: 'flex', backgroundColor: 'white', zIndex: 2 }}>
         <button style={{ flex: 1, height: '50px', backgroundColor: 'lightblue', border: 'none' }}>Reset</button>
