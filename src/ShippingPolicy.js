@@ -4,10 +4,17 @@ import "./PolicyColumn.css";
 export const ShippingPolicy = () => {
   return (
     <div className="policy-column">
-        <h4 style={{ marginTop: '80px' }}>Shipping Policy</h4>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-   </div> 
+          <h1 class="main-page-title page-title h0">
+            Shipping and Delivery
+          </h1>
+          <div class="rte">
+            <ul>
+        <li>
+        <span data-mce-fragment="1">&nbsp;</span>Delivery time 5 -7 working days. ( excludes weekends and public holiday)</li>
+        <li>Understandably, personalized items cannot be accepted for return or refund, unless there is a manufacturing error.</li>
+        <li>We guarantee our personalized products to be free of manufacturing errors. If there is an issue (incase of breakages) the return will be initiated only if the opening video of the item is sent along.</li>
+        </ul>
+          </div>
+        </div>
    );
 };
