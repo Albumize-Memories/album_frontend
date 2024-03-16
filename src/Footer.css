@@ -1,0 +1,19 @@
+.main-footer-content-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-column {
+  margin-right: 7px;
+  margin-left: 7px;
+  margin-top: 45px;
+}
+
+.secondary-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.secondary-menu li {
+  margin-bottom: 5px;
+}
