@@ -38,7 +38,7 @@ const CreateMemoryFrame = () => {
     formData.append('caption', caption);
 
     try {
-      const response = await axios.post('http://44.229.103.47:5000/generateMemoryFrame', formData, {
+      const response = await axios.post('http://54.85.70.9:5000/generateMemoryFrame', formData, {
         headers: {
           // Set any necessary headers based on your backend API requirements
           'Content-Type': 'multipart/form-data',
