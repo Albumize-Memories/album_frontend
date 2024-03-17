@@ -64,7 +64,7 @@ const UploadFormComponent = () => {
           sessionId = generateUniqueId();
           localStorage.setItem('sessionId', sessionId);
         } else {
-            axios.get('http://34.230.95.146:5000/retrieveGuestUserFormData', {
+            axios.get('http://54.85.70.9:5000/retrieveGuestUserFormData', {
             // axios.get(`${config.server_address}/retrieveGuestUserFormData`, {
                 headers: {
                     'Session-Token': sessionId,
@@ -102,7 +102,7 @@ const UploadFormComponent = () => {
         const body=JSON.stringify(data);
         try {
             // Make the API call
-            const response = await fetch('http://34.230.95.146:5000/createGuestUser', {
+            const response = await fetch('http://54.85.70.9:5000/createGuestUser', {
             // const response = await fetch(`${config.server_address}/createGuestUser`, {
                 method: 'POST',
                 headers: {
