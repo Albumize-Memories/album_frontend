@@ -28,7 +28,7 @@ ReactDOM.render(
           <Route path='/' element={<MemoryFrameComponentTwo/>} />
         </Routes>
       {/* <CreateMemoryFrame /> */}
-      {/* <MediaLinkFetcher /> */}
+      <MediaLinkFetcher />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
