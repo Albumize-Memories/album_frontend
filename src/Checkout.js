@@ -43,7 +43,7 @@ export const Checkout = () => {
         // Process form data (e.g., send it to backend, validate, etc.)
         // You can add your logic here
         try {
-            const response = await axios.post('https://backend.tasveer.shop/storeOrderData', JSON.stringify({ name, phone, address, city, state, pincode }), {
+            const response = await axios.post('https://backend.tasveer.shop/storeOrderData', JSON.stringify({ name, phone, address, city, state, pincode, id }), {
               headers: {
                 // Set any necessary headers based on your backend API requirements
                 'Content-Type': 'application/json',
@@ -51,13 +51,7 @@ export const Checkout = () => {
               },
             });
             console.log('API response:', response);
-           
-            // Handle successful submission (e.g., display a success message)
-          } catch (error) {
-            console.error('API error:', error);
-            // Handle API errors (e.g., display an error message)
-          }
-        const script = document.createElement('script');
+            const script = document.createElement('script');
         script.src = 'https://checkout.razorpay.com/v1/checkout.js';
         script.async = true;
         document.body.appendChild(script);
@@ -94,6 +88,13 @@ export const Checkout = () => {
             const rzp1 = new window.Razorpay(options);
             rzp1.open();
         };
+            // Handle successful submission (e.g., display a success message)
+          } catch (error) {
+            console.error('API error:', error);
+            // Handle API errors (e.g., display an error message)
+            alert("We couldn't upload your data, please reach out to us on tasveer@gmail.com.");
+          }
+       
     };
 
     return (
