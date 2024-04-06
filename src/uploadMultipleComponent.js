@@ -82,7 +82,7 @@ const UploadMultipleComponent = () => {
             }
         });
         try {
-            await axios.post('http://54.85.70.9:5000/uploadImages', formData, {
+            await axios.post('https://backend.tasveer.shop/uploadImages', formData, {
             // await axios.post(`${config.server_address}/uploadImages`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
