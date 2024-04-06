@@ -31,6 +31,9 @@ export const Checkout = () => {
             console.log('API response:', response);
             navigate(`/orderSuccessful?id=${orderId}`);
             // Handle successful submission (e.g., display a success message)
+
+            // As the order gets Successful just remove the session_Id from user's Browser so that they can place additional orders with ease.
+            localStorage.removeItem('sessionId');
           } catch (error) {
             console.error('API error:', error);
             // Handle API errors (e.g., display an error message)
