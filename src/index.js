@@ -11,6 +11,8 @@ import  { ShippingPolicy }  from './ShippingPolicy';
 import  { PrivacyPolicy }  from './PrivacyPolicy';
 import  { RefundPolicy }  from './RefundPolicy';
 import { TermsAndConditions } from './TermsAndCOnditions';
+import  {Checkout}  from './Checkout';
+import { OrderSuccessful } from './OrderSuccessful';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter> {/* Wrap your components with BrowserRouter */}
@@ -21,6 +23,8 @@ ReactDOM.render(
           <Route path="/shipping-policy" element={<ShippingPolicy/>} />
           <Route path="/refund-policy" element={<RefundPolicy/>} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions/>} />
+          <Route path="/checkout" element={ <Checkout />} /> 
+          <Route path="/orderSuccessful" element={ <OrderSuccessful />} /> 
           <Route path='/' element={<MemoryFrameComponentTwo/>} />
         </Routes>
       {/* <CreateMemoryFrame /> */}

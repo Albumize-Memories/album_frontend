@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Footer} from './Footer'
+import { useNavigate } from 'react-router-dom'; 
 
 const MemoryFrameComponentTwo = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -8,8 +9,8 @@ const MemoryFrameComponentTwo = () => {
     const [image, setImage] = useState(null);
     const [media, setMedia] = useState(null);
     const [text, setText] = useState('');
-
-    useEffect(() => {
+    const navigate = useNavigate();
+        useEffect(() => {
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
             setWindowHeight(window.innerHeight);
@@ -59,9 +60,9 @@ const MemoryFrameComponentTwo = () => {
         formData.append('photo', image);
         formData.append('videoAudio', media);
         formData.append('caption', text);
-    
+   
         try {
-          const response = await axios.post('http://54.85.70.9:5000/generateMemoryFrame', formData, {
+          const response = await axios.post('https://backend.tasveer.shop/generateMemoryFrame', formData, {
             headers: {
               // Set any necessary headers based on your backend API requirements
               'Content-Type': 'multipart/form-data',
@@ -69,11 +70,29 @@ const MemoryFrameComponentTwo = () => {
             },
           });
           console.log('API response:', response);
+         
           // Handle successful submission (e.g., display a success message)
         } catch (error) {
           console.error('API error:', error);
           // Handle API errors (e.g., display an error message)
         }
+        try {
+          const response = await axios.post('https://backend.tasveer.shop/create_payment_order', {}, {
+            headers: {
+              // Set any necessary headers based on your backend API requirements
+              'Content-Type': 'application/json',
+              'Session-Token': sessionId
+            },
+          });
+          console.log('API response:', response);
+          const { id } = response.data;
+          navigate(`/checkout?id=${id}`);
+          // Handle successful submission (e.g., display a success message)
+        } catch (error) {
+          console.error('API error:', error);
+          // Handle API errors (e.g., display an error message)
+        }
+        
       };
 
     return (
@@ -112,7 +131,7 @@ const MemoryFrameComponentTwo = () => {
     {/* Bottom buttons */}
     <div style={{ position: 'fixed', width: '100%', bottom: 0, display: 'flex', backgroundColor: 'white', zIndex: 2 }}>
         <button style={{ flex: 1, height: '50px', backgroundColor: 'lightblue', border: 'none' }}>Reset</button>
-        <button style={{ flex: 1, height: '50px', backgroundColor: 'lightgreen', border: 'none' }} onClick={handleSubmit} >Proceed</button>
+        <button style={{ flex: 1, height: '50px', backgroundColor: 'lightgreen', border: 'none' }} onClick={handleSubmit} >Proceed and Checkout</button>
     </div>
 </div>
     )
