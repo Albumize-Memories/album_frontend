@@ -7,6 +7,7 @@ const MemoryFrameComponentTwo = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [windowHeight, setWindowHeight] = useState(window.innerHeight);
     const [image, setImage] = useState(null);
+    const [imageUrl, setImageUrl] = useState(null);
     const [media, setMedia] = useState(null);
     const [text, setText] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +33,8 @@ const MemoryFrameComponentTwo = () => {
     const handleImageUpload = (event) => {
         const selectedFile = event.target.files[0];
         if (selectedFile && selectedFile.type.startsWith('image/')) {
-          setImage(URL.createObjectURL(selectedFile)); 
+          setImage(selectedFile);
+          setImageUrl(URL.createObjectURL(selectedFile)); 
         } else {
           alert('Please select a valid image file.');
         }
@@ -105,7 +107,7 @@ const MemoryFrameComponentTwo = () => {
     <div style={{ width: '100%', paddingTop: `${aspectRatio * 100}%`, position: 'relative' }}>
         {/* Custom static image for brown rectangle */}
         <div style={{ position: 'absolute', width: `${1080 * scale}px`, height: `${1440 * scale}px`, left: `${210 * scale}px`, top: `${105 * scale}px`, border: `${2 * scale}px solid black` }}>
-            <img src={image || "https://i.pinimg.com/originals/c7/ea/f1/c7eaf12850329ad6889b1c859b6133d1.jpg"} alt="Upload your Image" style={{ width: '100%', height: '100%' }} />
+            <img src={imageUrl || "https://i.pinimg.com/originals/c7/ea/f1/c7eaf12850329ad6889b1c859b6133d1.jpg"} alt="Upload your Image" style={{ width: '100%', height: '100%' }} />
             <input type="file" onChange={handleImageUpload} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0 }} />
             <button onClick={() => document.querySelector('#imageInput').click()} style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', zIndex: 1 }}>Upload Image</button>
         </div>
