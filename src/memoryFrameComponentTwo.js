@@ -121,19 +121,14 @@ const MemoryFrameComponentTwo = () => {
 
         {/* Text box */}
         <div style={{ position: 'absolute', width: `${900 * scale}px`, height: `${225 * scale}px`, left: `${(140 + 225 + 20) * scale}px`, top: `${1600 * scale}px`, backgroundColor: 'white', border: `${2 * scale}px solid #123456`, boxSizing: 'border-box' }}>
-            <textarea 
-            style={{ width: '100%', height: '90%', padding: `${5 * scale}px`, boxSizing: 'border-box', fontSize: `${30 * scale}px`, border: 'none' ,color: 'white'}} 
+            <input type="text" 
+            style={{ width: '100%', height: '90%', padding: `${5 * scale}px`, boxSizing: 'border-box', fontSize: `${30 * scale}px`, border: 'none' ,color: 'black',fontFamily: 'Brush Script MT'}} 
             placeholder="Enter Your memories here"
             onChange={(e) => {
               setText(e.target.value);
               handleTextChange(e);
             }}
-            > </textarea>
-        </div>
-
-        {/* Text */}
-        <div style={{ fontFamily: 'Brush Script MT', fontSize: `${30 * scale}px`, position: 'absolute', left: `${(140 + 225 + 20) * scale}px`, top: `${1600 * scale}px`, color: 'black', textAlign: 'left' }}>
-            {text}
+            />
         </div>
 
         {/* File input */}
