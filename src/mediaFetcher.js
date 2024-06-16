@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-
+import "./mediaFetcher.css";
 const MediaLinkFetcher = () => {
 
     useEffect(() => {
@@ -35,6 +35,15 @@ const MediaLinkFetcher = () => {
         }
        
     };
+
+    return(
+        <div className='loading'>
+            <h1>Fetching your memories for you...</h1>
+            <div class="loading-container">
+                <img src="https://business-website-static-assets-730335261607.s3.amazonaws.com/qrAnimation-removebg-preview.png" alt='loading' class="loading-image"/>
+            </div>
+        </div>
+    )
  
 };
 
