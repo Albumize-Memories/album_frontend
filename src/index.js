@@ -25,10 +25,12 @@ ReactDOM.render(
           <Route path="/terms-and-conditions" element={<TermsAndConditions/>} />
           <Route path="/checkout" element={ <Checkout />} /> 
           <Route path="/orderSuccessful" element={ <OrderSuccessful />} /> 
-          <Route path='/' element={<MemoryFrameComponentTwo/>} />
+          {/* <Route path='/' element={<MemoryFrameComponentTwo/>} /> */}
+          <Route path='/' element={<MediaLinkFetcher />} />
+
         </Routes>
       {/* <CreateMemoryFrame /> */}
-      <MediaLinkFetcher />
+      {/* <MediaLinkFetcher /> */}
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
